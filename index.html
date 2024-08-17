@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEB DEVELOPMENT</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
         html,
         body {
             margin: 0;
@@ -13,7 +20,6 @@
             height: 100%;
             font-family: Arial, sans-serif;
             scroll-behavior: smooth;
-            /* Smooth scrolling behavior */
         }
 
         .section-container {
@@ -31,6 +37,7 @@
             color: white;
             scroll-snap-align: start;
             transition: background-color 0.5s ease;
+            position: relative;
         }
 
         .section:nth-child(1) {
@@ -66,7 +73,6 @@
             background: #555;
         }
 
-        /* Optional Navigation Dots */
         .nav-dots {
             position: fixed;
             right: 20px;
@@ -93,11 +99,87 @@
         .mTITLE {
             font-family: 'Bahnschrift SemiBold';
             font-size: 20rem;
-            cursor: pointer;
             transition: 1s;
             text-decoration: underline;
             text-decoration-color: white;
             text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.26);
+        }
+
+        .mBUTTON {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            border: none;
+            box-shadow: none;
+            width: 250px;
+            height: 100px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 3rem;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.4s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 12px 12px 12px black;
+        }
+
+        .mBUTTON:active {
+            transform: translate(12px, 12px);
+            box-shadow: none;
+        }
+        .HTML-BUTTON {
+            background-color: #0055ff;
+        }
+
+        .HTML-BUTTON:hover {
+            background-color: white;
+            color: #0055ff;
+            font-weight: bold;
+        }
+
+        .CSS-BUTTON {
+            background-color: #c800ff;
+        }
+
+        .CSS-BUTTON:hover {
+            background-color: white;
+            color: #c800ff;
+            font-weight: bold;
+        }
+
+        .JavaScript-BUTTON {
+            background-color: #00ffe1 ;
+        }
+
+        .JavaScript-BUTTON:hover {
+            background-color: white;
+            color: #00ffe1;
+            font-weight: bold;
+        }
+
+        .Backend-BUTTON {
+            background-color: #ff9900;
+        }
+
+        .Backend-BUTTON:hover {
+            background-color: white;
+            color: #ff9900;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .mTITLE {
+                font-size: 5.8rem;
+            }
+            
+            .mBUTTON {
+                font-size: 2rem;
+                width: 200px;
+                height: 80px;
+            }
         }
     </style>
 </head>
@@ -107,24 +189,28 @@
         <section id="section1" class="section">
             <div class="HTML-BOX mBOX">
                     <span class="HTML-TITLE mTITLE">HTML</span>
+                    <button class="HTML-BUTTON mBUTTON">LEARN</button>
             </div>
         </section>
 
         <section id="section2" class="section">
             <div class="CSS-BOX mBOX">
                     <span class="CSS-TITLE mTITLE">CSS</span>
+                    <button class="CSS-BUTTON mBUTTON">LEARN</button>
             </div>
         </section>
 
         <section id="section3" class="section">
             <div class="JavaScript-BOX mBOX">
                     <span class="JavaScript-TITLE mTITLE">JavaScript</span>
+                    <button class="JavaScript-BUTTON mBUTTON">LEARN</button>
             </div>
         </section>
 
         <section id="section4" class="section">
             <div class="Backend-BOX mBOX">
                     <span class="Backend-TITLE mTITLE">Backend</span>
+                    <button class="Backend-BUTTON mBUTTON">LEARN</button>
             </div>
         </section>
     </div>
