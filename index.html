@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB DEVELOPMENT</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+            /* Smooth scrolling behavior */
+        }
+
+        .section-container {
+            height: 100vh;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+        }
+
+        .section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            color: white;
+            scroll-snap-align: start;
+            transition: background-color 0.5s ease;
+        }
+
+        .section:nth-child(1) {
+            background: linear-gradient(to bottom, #003366, #003399);
+        }
+
+        .section:nth-child(2) {
+            background: linear-gradient(to bottom, #6A1B9A, #8E24AA);
+        }
+
+        .section:nth-child(3) {
+            background: linear-gradient(to bottom, #004D40, #00796B);
+        }
+
+        .section:nth-child(4) {
+            background: linear-gradient(to bottom, #FFD700, #FFC107);
+        }
+
+        .section-container::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .section-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .section-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+
+        .section-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Optional Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-dot.active {
+            background-color: #555;
+        }
+
+        .mTITLE {
+            font-family: 'Bahnschrift SemiBold';
+            font-size: 20rem;
+            cursor: pointer;
+            transition: 1s;
+            text-decoration: underline;
+            text-decoration-color: white;
+            text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.26);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section-container">
+        <section id="section1" class="section">
+            <div class="HTML-BOX mBOX">
+                    <span class="HTML-TITLE mTITLE">HTML</span>
+            </div>
+        </section>
+
+        <section id="section2" class="section">
+            <div class="CSS-BOX mBOX">
+                    <span class="CSS-TITLE mTITLE">CSS</span>
+            </div>
+        </section>
+
+        <section id="section3" class="section">
+            <div class="JavaScript-BOX mBOX">
+                    <span class="JavaScript-TITLE mTITLE">JavaScript</span>
+            </div>
+        </section>
+
+        <section id="section4" class="section">
+            <div class="Backend-BOX mBOX">
+                    <span class="Backend-TITLE mTITLE">Backend</span>
+            </div>
+        </section>
+    </div>
+    <!-- Navigation Dots -->
+    <div class="nav-dots">
+        <div class="nav-dot" data-target="section1"></div>
+        <div class="nav-dot" data-target="section2"></div>
+        <div class="nav-dot" data-target="section3"></div>
+        <div class="nav-dot" data-target="section4"></div>
+    </div>
+    <script>
+        // Highlight the active section's nav dot
+        const sections = document.querySelectorAll('.section');
+        const navDots = document.querySelectorAll('.nav-dot');
+        function updateNavDots() {
+            let currentSectionIndex = 0;
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
+                    currentSectionIndex = index;
+                }
+            });
+            navDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSectionIndex);
+            });
+        }
+        // Scroll to the target section when a nav dot is clicked
+        navDots.forEach(dot => {
+            dot.addEventListener('click', function () {
+                const targetId = this.getAttribute('data-target');
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        // Update nav dots on scroll
+        document.querySelector('.section-container').addEventListener('scroll', updateNavDots);
+        // Initial update for nav dots
+        updateNavDots();
+    </script>
+</body>
+
+</html>
